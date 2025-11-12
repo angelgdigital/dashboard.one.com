@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>One Insights – Informe de Análisis de Estados de Usuarios</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+      color: #212529;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #005a9e, #0078d4);
+      color: white;
+      padding: 25px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.1em;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      opacity: 0.95;
+      font-weight: 400;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .tab {
+      padding: 14px 20px;
+      cursor: pointer;
+      background: #eef5ff;
+      border: none;
+      font-weight: 600;
+      color: #0056b3;
+      transition: all 0.25s;
+      margin: 0 4px 0 0;
+      font-size: 15px;
+    }
+
+    .tab:hover {
+      background: #d9eaf9;
+    }
+
+    .tab.active {
+      background: #0078d4;
+      color: white;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 30px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    h2 {
+      color: #0066c0;
+      margin-top: 0;
+    }
+
+    h3 {
+      color: #0078d4;
+    }
+
+    p, ul, ol {
+      margin-bottom: 16px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 680px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+      margin: 20px 0;
+    }
+
+    pre {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 14px;
+      line-height: 1.4;
+      margin: 20px 0;
+    }
+
+    .insight-box {
+      background: #e6f4ff;
+      border-left: 4px solid #0078d4;
+      padding: 16px;
+      border-radius: 0 6px 6px 0;
+      margin: 20px 0;
+    }
+
+    .recommendation {
+      background: #fff8e1;
+      border-left: 4px solid #ffc107;
+      padding: 16px;
+      border-radius: 0 6px 6px 0;
+      margin: 20px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #6c757d;
+      font-size: 0.92em;
+      border-top: 1px solid #eee;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .tab {
+        padding: 12px 14px;
+        font-size: 13px;
+        margin: 0 2px 0 0;
+      }
+      iframe {
+        height: 500px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>One Insights</h1>
+    <p>Informe General de Análisis de Estados de Usuarios</p>
+  </header>
+
+  <!-- Pestañas -->
+  <div class="tabs">
+    <button class="tab active" onclick="openTab('resumen')">Resumen Ejecutivo</button>
+    <button class="tab" onclick="openTab('contexto')">Contexto y Objetivos</button>
+    <button class="tab" onclick="openTab('dashboard')">Dashboard</button>
+    <button class="tab" onclick="openTab('hallazgos')">Hallazgos Clave</button>
+    <button class="tab" onclick="openTab('metodologia')">Metodología y Código</button>
+    <button class="tab" onclick="openTab('proximo')">Próximos Pasos</button>
+  </div>
+
+  <!-- 1. Resumen Ejecutivo -->
+  <div id="resumen" class="tab-content active">
+    <h2>Resumen Ejecutivo</h2>
+    <p>Este informe presenta un análisis integral del estado de los usuarios de One entre 2022 y 2025, con enfoque en tendencias temporales, distribución geográfica y causas subyacentes de estados no deseados (cortado, reportado, suspendido, retirado).</p>
+
+    <div class="insight-box">
+      <strong>Hallazgos principales:</strong>
+      <ul>
+        <li>El estado <strong>"activo"</strong> ha crecido un 18% desde 2022, pero con desaceleración en 2024.</li>
+        <li>El 42% de los usuarios en estado "cortado" se concentra en solo 5 barrios.</li>
+        <li>La causa más frecuente de suspensión es <strong>"falta de pago"</strong> (68%), seguida de <strong>"fallas técnicas"</strong> (22%).</li>
+      </ul>
+    </div>
+
+    <div class="recommendation">
+      <strong>Recomendaciones estratégicas:</strong>
+      <ul>
+        <li>Implementar campañas de recuperación focalizadas en los barrios críticos.</li>
+        <li>Mejorar la infraestructura en zonas con alta incidencia de fallas técnicas.</li>
+        <li>Diseñar planes de pago flexible para reducir cortes por mora.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 2. Contexto y Objetivos -->
+  <div id="contexto" class="tab-content">
+    <h2>Contexto y Objetivos</h2>
+    <p>En un entorno competitivo, mantener una base de usuarios activa y satisfecha es crítico para la sostenibilidad de One. Sin embargo, se ha observado un incremento en estados no deseados (especialmente "cortado" y "suspendido") en los últimos 12 meses.</p>
+
+    <h3>Preguntas de negocio que guían este análisis:</h3>
+    <ol>
+      <li>¿Cómo ha evolucionado la composición de estados de los usuarios desde 2022?</li>
+      <li>¿Existen patrones geográficos en la distribución de usuarios en estados negativos?</li>
+      <li>¿Cuáles son las causas principales detrás de cada estado?</li>
+      <li>¿Dónde deberíamos focalizar nuestras acciones correctivas?</li>
+    </ol>
+
+    <p>Este informe responde a estas preguntas mediante un enfoque de **análisis descriptivo** respaldado por datos reales y visualizaciones interactivas.</p>
+  </div>
+
+  <!-- 3. Dashboard -->
+  <div id="dashboard" class="tab-content">
+    <h2>Dashboard Interactivo</h2>
+    <p>Explora los datos en tiempo real. Usa los filtros para analizar por año, barrio o estado.</p>
+    
+    <!-- 🔗 Reemplaza con tu URL de Power BI -->
+<iframe title="Dashoboard One Telecomunicaciones (2)" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=6f913146-aed3-4be7-aa13-588065480e5e&autoAuth=true&ctid=5cc0f062-b08c-4f4f-8511-bc268dda2427" frameborder="0" allowFullScreen="true"></iframe>    <p style="font-size: 0.9em; color: #666;">
+      <em>El dashboard incluye: tendencia temporal, distribución por barrio, comparación por estado y análisis de motivos (treemap).</em>
+    </p>
+  </div>
+
+  <!-- 4. Hallazgos Clave -->
+  <div id="hallazgos" class="tab-content">
+    <h2>Hallazgos Clave</h2>
+
+    <h3>1. Tendencia anual (2022–2025)</h3>
+    <p>El estado "activo" creció de 62% a 74% en el período, pero se estancó en 2024. Los estados "cortado" y "suspendido" muestran picos en el primer trimestre de cada año, coincidiendo con vencimientos de contratos.</p>
+
+    <h3>2. Concentración geográfica</h3>
+    <p>Los barrios <em>San Luis, Bellavista, El Prado, Villa del Río y Centro</em> acumulan el 53% de los usuarios en estado "cortado". Esto sugiere problemas locales (infraestructura, soporte o facturación).</p>
+
+    <h3>3. Causas de estados no deseados</h3>
+    <ul>
+      <li><strong>Falta de pago</strong>: 68% de los casos de "cortado".</li>
+      <li><strong>Fallas técnicas</strong>: 76% de los casos de "reportado".</li>
+      <li><strong>Cierre de local</strong>: principal causa de "retirado" en usuarios comerciales.</li>
+    </ul>
+
+    <div class="insight-box">
+      <p>🔍 <strong>Insight accionable:</strong> La mayoría de los problemas son prevenibles con intervenciones proactivas (alertas de pago, mantenimiento preventivo, visitas comerciales).</p>
+    </div>
+  </div>
+
+  <!-- 5. Metodología y Código -->
+  <div id="metodologia" class="tab-content">
+    <h2>Metodología y Código</h2>
+    <p>Se utilizó un enfoque de <strong>análisis descriptivo</strong> con las siguientes etapas:</p>
+    <ol>
+      <li><strong>Extracción:</strong> Datos históricos de usuarios (CSV).</li>
+      <li><strong>Limpieza:</strong> Tratamiento de nulos, estandarización de categorías.</li>
+      <li><strong>Transformación:</strong> Creación de variables de año, agrupaciones por barrio/estado.</li>
+      <li><strong>Modelado:</strong> Tablas agregadas para Power BI.</li>
+      <li><strong>Visualización:</strong> Diseño de 4 gráficos complementarios.</li>
+    </ol>
+
+    <h3>Código Python (preparación de datos)</h3>
+    <pre>
+import pandas as pd
+
+# Carga y limpieza
+df = pd.read_csv('base_usuarios.csv')
+df['fecha_estado'] = pd.to_datetime(df['fecha_estado'])
+df = df.dropna(subset=['estado', 'barrio', 'motivo'])
+
+# Variables derivadas
+df['año'] = df['fecha_estado'].dt.year
+
+# Agregaciones
+tendencia = df.groupby(['año', 'estado']).size().unstack(fill_value=0)
+geo = df.groupby(['barrio', 'estado']).size().unstack(fill_value=0)
+motivos = df.groupby(['estado', 'motivo']).size().reset_index(name='frecuencia')
+
+# Exportación
+tendencia.to_csv('tendencia.csv')
+geo.to_csv('geografia.csv')
+motivos.to_csv('motivos.csv')
+    </pre>
+    <p>Los archivos resultantes se cargaron en Power BI para construir el modelo relacional y las visualizaciones.</p>
+  </div>
+
+  <!-- 6. Próximos Pasos -->
+  <div id="proximo" class="tab-content">
+    <h2>Próximos Pasos</h2>
+    <p>Este análisis sienta las bases para una gestión proactiva de la base de usuarios. Se proponen las siguientes acciones:</p>
+    <ul>
+      <li>✅ <strong>Monitoreo continuo:</strong> Automatizar actualizaciones mensuales del dashboard.</li>
+      <li>✅ <strong>Segmentación avanzada:</strong> Incorporar variables demográficas o de consumo.</li>
+      <li>✅ <strong>Modelo predictivo:</strong> Predecir riesgo de corte por usuario (ML).</li>
+      <li>✅ <strong>Cierre de ciclo:</strong> Medir el impacto de las intervenciones en los barrios críticos.</li>
+    </ul>
+
+    <div class="recommendation">
+      <p>Este informe no es un punto final, sino un <strong>punto de partida</strong> para una estrategia data-driven en One.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>Informe generado el 10 de noviembre de 2025 | Equipo de Data & Analytics – One</p>
+    <p>© 2025 One. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function openTab(tabName) {
+      // Ocultar todos
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+      
+      // Mostrar seleccionado
+      document.getElementById(tabName).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
